@@ -6,21 +6,17 @@ class SomeObject {
     public function __construct(string $name) { }
 
     public function getObjectName() { }
+
+    public function handle() { }
 }
 
 class SomeObjectsHandler {
     public function __construct() { }
 
-    public function handleObjects(array $objects): array {
-        $handlers = [];
+    public function handleObjects(array $objects) {
         foreach ($objects as $object) {
-            if ($object->getObjectName() == 'object_1')
-                $handlers[] = 'handle_object_1';
-            if ($object->getObjectName() == 'object_2')
-                $handlers[] = 'handle_object_2';
+            $object->handle();
         }
-
-        return $handlers;
     }
 }
 

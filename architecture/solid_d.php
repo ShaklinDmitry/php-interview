@@ -1,17 +1,21 @@
 <?php
 
-class XMLHttpService extends XMLHTTPRequestService {}
+interface HttpServiceInterface{}
 
-class Http {
+interface HttpInterface{}
+
+class XMLHttpService extends XMLHTTPRequestService implements HttpServiceInterface{}
+
+class Http implements HttpInterface{
     private $service;
 
-    public function __construct(XMLHttpService $xmlHttpService) { }
+    public function __construct(HttpServiceInterface $httpService) { }
 
     public function get(string $url, array $options) {
         $this->service->request($url, 'GET', $options);
     }
 
     public function post(string $url) {
-        $this->service->request($url, 'GET');
+        $this->service->request($url, 'POST');
     }
 }

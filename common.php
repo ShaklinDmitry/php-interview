@@ -1,4 +1,5 @@
 <?php
+
 $array = [
   ['id' => 1, 'date' => "12.01.2020", 'name' => "test1"],
   ['id' => 2, 'date' => "02.05.2020", 'name' => "test2"],
@@ -22,7 +23,6 @@ $array = array_values($uniqIdArray);
 print_r($array);
 
 
-
 //2 задача.
 // отсортировать многомерный массив по ключу (любому)
 //сортирую по id
@@ -30,7 +30,6 @@ usort($array, function ($a, $b) {
     return $a['id'] <=> $b['id'];
 });
 print_r($array);
-
 
 
 //3 задача.
@@ -44,15 +43,12 @@ $array_filter = array_filter($array, function ($el) {
 print_r($array_filter);
 
 
-
-
 //4 задача.
 // изменить в массиве значения и ключи (использовать name => id в качестве пары ключ => значение)
 $ids = array_column($array, 'id');
 $name = array_column($array, 'name');
 $array = array_combine($name, $ids);
 print_r($array);
-
 
 
 //5 задача
@@ -64,7 +60,6 @@ $sql = "SELECT g.id, g.name
             GROUP BY g.id
             HAVING count(g_t.tag_id) = (SELECT count(t.id) FROM tags t)
             ";
-
 
 
 //6 задача
